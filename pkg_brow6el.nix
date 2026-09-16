@@ -39,11 +39,12 @@ stdenv.mkDerivation (final: {
   };
 
   env = {
-    "CEF_DIR" = "${cef-binary}/result/cmake/";
-    "CEF" = "${cef-binary}/result/cmake/FindCEF.cmake";
+    "CEF_DIR" = "${cef-binary}/cmake/";
+    "CEF" = "${cef-binary}/cmake/FindCEF.cmake";
   };
 
   prebuild = ''
+    export CEF_DIR = "${cef-binary}/cmake/"
     cp ${cef-binary}/bin/cef-binary .
   '';
 
@@ -68,11 +69,10 @@ stdenv.mkDerivation (final: {
     nspr
     glib
     # cef-binary
-    # pkg-config
   ];
 
   buildInputs = [
-    # cef-binary
+    cef-binary
   ];
 
   meta = {
