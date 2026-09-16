@@ -1,28 +1,29 @@
 {
-  cef-binary,
+  # base-devel,
+  # build-essential,
   # fetchFromCodeberg,
   # pkgs,
+  alsa-lib,
+  atk,
+  cef-binary,
   cmake,
-  fetchgit,
-  lib,
-  # base-devel,
-  git,
+  cups,
   curl,
-  libsixel,
-  pkg-config,
+  fetchgit,
+  git,
+  glib,
+  lib,
   libX11,
+  libsixel,
   libxcomposite,
   libxdamage,
   libxfixes,
   libxrandr,
   mesa,
-  pango,
-  atk,
-  cups,
-  alsa-lib,
-  nss,
   nspr,
-  glib,
+  nss,
+  pango,
+  pkg-config,
   stdenv,
 }:
 stdenv.mkDerivation (final: {
@@ -49,30 +50,31 @@ stdenv.mkDerivation (final: {
   '';
 
   nativeBuildInputs = [
-    cmake
     # base-devel
-    git
+    # build-essential
+    alsa-lib
+    atk
+    cef-binary
+    cmake
+    cups
     curl
-    libsixel
-    pkg-config
+    git
+    glib
     libX11
+    libsixel
     libxcomposite
     libxdamage
     libxfixes
     libxrandr
     mesa
-    pango
-    atk
-    cups
-    alsa-lib
-    nss
     nspr
-    glib
-    # cef-binary
+    nss
+    pango
+    pkg-config
   ];
 
   buildInputs = [
-    cef-binary
+    # cef-binary
   ];
 
   meta = {
