@@ -38,12 +38,13 @@ stdenv.mkDerivation (final: {
     hash = "sha256-yk+fMVuRXHB6u4OBDQ7U6wfyhPpq3cPrQclrCHFi5mY=";
   };
 
-  # env = {
-  #   "CEF" = "${cef-binary}/result/bin/";
-  # };
+  env = {
+    "CEF_DIR" = "${cef-binary}/result/cmake/";
+    "CEF" = "${cef-binary}/result/cmake/FindCEF.cmake";
+  };
 
   prebuild = ''
-    cp ${cef-binary}/bin/cef_binary .
+    cp ${cef-binary}/bin/cef-binary .
   '';
 
   nativeBuildInputs = [
